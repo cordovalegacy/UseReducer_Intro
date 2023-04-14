@@ -1,0 +1,80 @@
+@mixin containers($container-width: 100%){
+  width: $container-width;
+}
+
+@mixin forms($primary-color: dodgerblue, $primary-padding: 25px, $primary-radius: 5px, $primary-width: 100%){
+background-color: $primary-color;
+padding: $primary-padding;
+border-radius: $primary-radius;
+width: $primary-width;
+}
+
+@mixin labels($label-align: left, $label-color: whitesmoke, $label-display: block, $label-text: 1.2em){
+  text-align: $label-align;
+  color: $label-color;
+  display: $label-display;
+  font-size: $label-text;
+}
+
+@mixin inputs($input-width: 95%, $input-padding: 10px, $input-radius: 5px){
+  width: $input-width;
+  padding: $input-padding;
+  border-radius: $input-radius;
+}
+
+@mixin buttons($button-padding: 10px, $button-radius: 5px, $button-color: gold, $button-margin: 15px 0px 5px 0px, $button-pointer: pointer, $button-wdith: 50%){
+  padding: $button-padding;
+  border-radius: $button-radius;
+  color: $button-color;
+  margin: $button-margin;
+  cursor: $button-pointer;
+  width: $button-wdith;
+}
+
+@mixin hovers($hover-color: goldenrod, $hover-text: black){
+  background-color: $hover-color;
+  color: $hover-text;
+}
+
+@mixin focuses($active-color: goldenrod){
+  border-color: $active-color
+}
+
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.App{
+  @include containers
+}
+
+form{
+  @include forms
+}
+
+label{
+  @include labels
+}
+
+input[type=text]{
+  @include inputs
+}
+
+input[type=text]:focus{
+  @include focuses
+}
+
+// input[type=text]:focus{
+//   @include actives
+// }
+
+input[type=submit], button{
+  @include buttons
+}
+
+input[type=submit]:hover, button:hover{
+  @include hovers
+}
